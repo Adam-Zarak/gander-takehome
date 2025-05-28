@@ -67,7 +67,7 @@ export default function Dashboard() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
               </span>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-900">
                 <span className="font-semibold text-green-600">{readyAircraft.length}</span> of {aircraft.length} aircraft ready to fly
               </p>
             </div>
@@ -90,7 +90,7 @@ export default function Dashboard() {
                 transition={{ delay: 0.8 }}
                 className="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition-shadow duration-300"
               >
-                <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                <h2 className="text-lg font-semibold mb-4 flex items-center gap-2 text-gray-900">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
                   </svg>
@@ -107,7 +107,7 @@ export default function Dashboard() {
                 transition={{ delay: 1 }}
                 className="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition-shadow duration-300"
               >
-                <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                <h2 className="text-lg font-semibold mb-4 flex items-center gap-2 text-gray-900">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                   </svg>
