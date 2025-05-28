@@ -34,3 +34,25 @@ body {
     @apply border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
   }
 }
+
+/* Custom aircraft marker styles */
+.custom-aircraft-icon {
+  background: none;
+  border: none;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.custom-aircraft-icon:hover {
+  transform: scale(1.2);
+  z-index: 1000;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.leaflet-popup-tip {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}

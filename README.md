@@ -44,5 +44,4 @@ This application helps dispatchers and schedulers quickly determine which aircra
 ## Development Time
 
 Start time: 6:52 pm
-End time: 7:52 pm
-Total time: 1 hour
+
