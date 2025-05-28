@@ -1,6 +1,6 @@
-export type AircraftStatus = 'available' | 'aog' | 'maintenance';
+export type AircraftStatus = 'available' | 'maintenance' | 'aog';
 
-export interface Coordinates {
+export interface Location {
   latitude: number;
   longitude: number;
 }
@@ -10,12 +10,21 @@ export interface Aircraft {
   tailNumber: string;
   model: string;
   status: AircraftStatus;
-  location: Coordinates;
-  updatedAt: string;
+  location: Location;
 }
 
 export interface AircraftFilter {
   tailNumber?: string;
   model?: string;
   status?: AircraftStatus;
+}
+
+export interface StatusChange {
+  id: string;
+  aircraftId: string;
+  tailNumber: string;
+  previousStatus: AircraftStatus;
+  newStatus: AircraftStatus;
+  timestamp: Date;
+  reason?: string;
 } 
