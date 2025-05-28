@@ -13,12 +13,17 @@ This application helps dispatchers and schedulers quickly determine which aircra
 - Interactive status updates
 - Persistent status changes
 - Clean and intuitive user interface
+- Beautiful animations and transitions
+- Interactive map visualization
+- Modern, responsive design
 
 ### Tech Stack
 
 - Next.js 14
 - TypeScript
 - Tailwind CSS
+- Framer Motion
+- React Leaflet
 - ESLint
 - Modern App Router Architecture
 
@@ -38,4 +43,6 @@ This application helps dispatchers and schedulers quickly determine which aircra
 
 ## Development Time
 
-Start time: [Current Time]
+Start time: 6:52 pm
+End time: 7:52 pm
+Total time: 1 hour
