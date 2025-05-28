@@ -13,9 +13,9 @@ interface AircraftListProps {
 }
 
 const statusStyles = {
-  available: 'bg-green-50 text-green-700 ring-green-600/20',
-  maintenance: 'bg-yellow-50 text-yellow-700 ring-yellow-600/20',
-  aog: 'bg-red-50 text-red-700 ring-red-600/20',
+  available: 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 ring-green-600/20 dark:ring-green-300/20',
+  maintenance: 'bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 ring-yellow-600/20 dark:ring-yellow-300/20',
+  aog: 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 ring-red-600/20 dark:ring-red-300/20',
 };
 
 const statusIcons = {
@@ -38,7 +38,7 @@ const statusIcons = {
 
 export default function AircraftList({ aircraft, onStatusUpdate }: AircraftListProps) {
   return (
-    <ul role="list" className="divide-y divide-gray-100">
+    <ul role="list" className="divide-y divide-gray-100 dark:divide-gray-700">
       <AnimatePresence>
         {aircraft.map((aircraft) => (
           <motion.li
@@ -46,11 +46,11 @@ export default function AircraftList({ aircraft, onStatusUpdate }: AircraftListP
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="flex items-center justify-between gap-x-6 py-5 hover:bg-gray-50 px-4 -mx-4 rounded-lg transition-colors duration-200"
+            className="flex items-center justify-between gap-x-6 py-5 hover:bg-gray-50 dark:hover:bg-gray-800/50 px-4 -mx-4 rounded-lg transition-colors duration-200"
           >
             <div className="min-w-0">
               <div className="flex items-start gap-x-3">
-                <p className="text-sm font-semibold leading-6 text-gray-900">{aircraft.tailNumber}</p>
+                <p className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">{aircraft.tailNumber}</p>
                 <div
                   className={clsx(
                     statusStyles[aircraft.status],
@@ -61,7 +61,7 @@ export default function AircraftList({ aircraft, onStatusUpdate }: AircraftListP
                   {aircraft.status}
                 </div>
               </div>
-              <div className="mt-1 flex items-center gap-x-2 text-xs leading-5 text-gray-500">
+              <div className="mt-1 flex items-center gap-x-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
                 <p className="whitespace-nowrap">{aircraft.model}</p>
                 <svg viewBox="0 0 2 2" className="h-0.5 w-0.5 fill-current">
                   <circle cx={1} cy={1} r={1} />
@@ -73,7 +73,7 @@ export default function AircraftList({ aircraft, onStatusUpdate }: AircraftListP
             </div>
             <div className="flex flex-none items-center gap-x-4">
               <Menu as="div" className="relative flex-none">
-                <Menu.Button className="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900">
+                <Menu.Button className="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
                   <span className="sr-only">Open options</span>
                   <EllipsisVerticalIcon className="h-5 w-5" aria-hidden="true" />
                 </Menu.Button>
@@ -86,15 +86,15 @@ export default function AircraftList({ aircraft, onStatusUpdate }: AircraftListP
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
+                  <Menu.Items className="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white dark:bg-gray-800 py-2 shadow-lg ring-1 ring-gray-900/5 dark:ring-gray-700/50 focus:outline-none">
                     {(['available', 'maintenance', 'aog'] as const).map((status) => (
                       <Menu.Item key={status}>
                         {({ active }) => (
                           <button
                             onClick={() => onStatusUpdate(aircraft.id, status)}
                             className={clsx(
-                              active ? 'bg-gray-50' : '',
-                              'block px-3 py-1 text-sm leading-6 text-gray-900 w-full text-left flex items-center gap-2',
+                              active ? 'bg-gray-50 dark:bg-gray-700/50' : '',
+                              'block px-3 py-1 text-sm leading-6 text-gray-900 dark:text-gray-100 w-full text-left flex items-center gap-2',
                               aircraft.status === status && 'font-semibold'
                             )}
                           >
