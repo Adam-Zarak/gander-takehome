@@ -1,47 +1,61 @@
-# Aircraft Fleet Management Dashboard
+# Aircraft Fleet Management System
 
-A modern Next.js application for managing and monitoring aircraft fleet status and availability.
+A modern web application for managing and monitoring aircraft fleet status, built with Next.js, Mapbox, and TypeScript.
 
-## Project Overview
+## Features
 
-This application helps dispatchers and schedulers quickly determine which aircraft are ready to fly and manage their fleet's status. Built as part of a take-home project for Gander.
+- Real-time aircraft location tracking on an interactive map
+- Status management (Available, Maintenance, AOG)
+- Projected paths showing aircraft destinations based on status
+- Dark mode support
+- AI-powered chat assistant for fleet information
+- Responsive design for desktop and mobile
 
-### Features
+## Prerequisites
 
-- Real-time aircraft status monitoring
-- Filter aircraft by tail number, model, and status
-- Interactive status updates
-- Persistent status changes
-- Clean and intuitive user interface
-- Beautiful animations and transitions
-- Interactive map visualization
-- Modern, responsive design
+- Node.js 18.x or later
+- A Mapbox account and access token
 
-### Tech Stack
+## Environment Variables
 
-- Next.js 14
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- React Leaflet
-- ESLint
-- Modern App Router Architecture
+Before running the application, you need to set up the following environment variables in a `.env.local` file:
+
+```bash
+NEXT_PUBLIC_MAPBOX_TOKEN=your_mapbox_token_here
+```
 
 ## Getting Started
 
-1. Install dependencies:
+1. Clone the repository
+2. Install dependencies:
    ```bash
    npm install
    ```
-
-2. Run the development server:
+3. Create a `.env.local` file and add your Mapbox token
+4. Run the development server:
    ```bash
    npm run dev
    ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+## Deployment on Vercel
 
-## Development Time
+1. Fork or clone this repository to your GitHub account
+2. Create a new project on [Vercel](https://vercel.com)
+3. Connect your GitHub repository to Vercel
+4. Add the required environment variables in the Vercel project settings:
+   - `NEXT_PUBLIC_MAPBOX_TOKEN`
+5. Deploy!
 
-Start time: 6:52 pm
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) - React framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/) - Interactive maps
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Framer Motion](https://www.framer.com/motion/) - Animations
+
+## License
+
+MIT
 

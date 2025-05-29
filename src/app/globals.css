@@ -48,11 +48,18 @@ body {
   z-index: 1000;
 }
 
-.leaflet-popup-content-wrapper {
+.mapboxgl-popup-content {
   border-radius: 0.75rem;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  color: #000000;
+  padding: 0.75rem;
 }
 
-.leaflet-popup-tip {
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+.mapboxgl-popup-content p {
+  color: #000000;
+  margin: 0.25rem 0;
+}
+
+.mapboxgl-popup-tip {
+  border-top-color: #ffffff !important;
 }

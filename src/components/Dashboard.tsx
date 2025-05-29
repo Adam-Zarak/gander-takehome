@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Aircraft, AircraftFilter } from '@/types/aircraft';
+import { Aircraft, AircraftFilter, StatusChange } from '@/types/aircraft';
 import { db } from '@/lib/db';
 import AircraftList from './AircraftList';
 import AircraftMap from './AircraftMap';
@@ -9,14 +9,58 @@ import FilterBar from './FilterBar';
 import { motion } from 'framer-motion';
 import RecentChanges from './RecentChanges';
 import FleetMetrics from './FleetMetrics';
+import AiAssistant from './AiAssistant';
+
+// Initial aircraft data
+const initialAircraft: Aircraft[] = [
+  {
+    id: '1',
+    tailNumber: 'N12345',
+    model: 'Boeing 737-800',
+    status: 'available' as const,
+    location: { latitude: 40.7128, longitude: -74.0060 }, // New York
+  },
+  {
+    id: '2',
+    tailNumber: 'N67890',
+    model: 'Airbus A320',
+    status: 'maintenance' as const,
+    location: { latitude: 34.0522, longitude: -118.2437 }, // Los Angeles
+  },
+  {
+    id: '3',
+    tailNumber: 'N11223',
+    model: 'Boeing 787-9',
+    status: 'aog' as const,
+    location: { latitude: 41.8781, longitude: -87.6298 }, // Chicago
+  },
+  {
+    id: '4',
+    tailNumber: 'N44556',
+    model: 'Airbus A321',
+    status: 'available' as const,
+    location: { latitude: 29.7604, longitude: -95.3698 }, // Houston
+  },
+  {
+    id: '5',
+    tailNumber: 'N77889',
+    model: 'Boeing 737-900',
+    status: 'maintenance' as const,
+    location: { latitude: 47.6062, longitude: -122.3321 }, // Seattle
+  },
+];
 
 export default function Dashboard() {
-  const [aircraft, setAircraft] = useState<Aircraft[]>(db.getAll());
+  const [aircraft, setAircraft] = useState<Aircraft[]>([]);
   const [filters, setFilters] = useState<AircraftFilter>({});
   const [isLoaded, setIsLoaded] = useState(false);
-  const [recentChanges, setRecentChanges] = useState(db.getRecentStatusChanges());
+  const [recentChanges, setRecentChanges] = useState<StatusChange[]>([]);
 
   useEffect(() => {
+    // Initialize the database with aircraft data
+    db.init(initialAircraft);
+    setAircraft(db.getAll());
+    setRecentChanges(db.getRecentStatusChanges());
     setIsLoaded(true);
   }, []);
 
@@ -34,11 +78,9 @@ export default function Dashboard() {
   });
 
   const handleStatusUpdate = (id: string, status: Aircraft['status']) => {
-    const updatedAircraft = db.updateStatus(id, status);
-    if (updatedAircraft) {
-      setAircraft(db.getAll());
-      setRecentChanges(db.getRecentStatusChanges());
-    }
+    db.updateStatus(id, status);
+    setAircraft(db.getAll());
+    setRecentChanges(db.getRecentStatusChanges());
   };
 
   const metrics = db.getFleetMetrics();
@@ -110,6 +152,8 @@ export default function Dashboard() {
           </motion.div>
         </div>
       </main>
+      
+      <AiAssistant />
     </div>
   );
 } 

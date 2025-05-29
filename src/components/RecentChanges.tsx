@@ -65,7 +65,7 @@ export default function RecentChanges({ changes }: RecentChangesProps) {
                 )}
               </div>
               <span className="text-xs text-gray-500 dark:text-gray-400">
-                {formatTime(change.timestamp)}
+                {formatTime(new Date(change.timestamp))}
               </span>
             </div>
           </motion.div>
